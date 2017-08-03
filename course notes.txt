@@ -123,4 +123,16 @@ Click "Modes" tab -> click "Landscape" sub-menu -> select "Create New" -> ...(se
 To delete a Landscape:
 Click "World Outliner" tab -> select Landscape and delete it.
 
-If the Landscape is to large use LightmassImportanceVolume to lower processing power demand
+If the Landscape is to large use LightmassImportanceVolume to lower processing power demand.
+
+To create a Landscape layerd material:
+Click right on free spot in "Content Browser" -> "New material".
+Double click on newly created material -> add "LandscapeLayerBlend".
+Connet it with "Base Color" of material.
+In the LandscapeLayerBlend Detail window add two Layers.
+Add "VectorParameter" to the main material window. Define color in them and connect with LandscapeLayerBlend.
+
+To add material to the Landscape:
+Select Landscape in World Outliner, go to the Details tab and ad Landscape Material.
+Go to Modes -> Landscape -> Paint; click '+' on the layer -> choose "...(normal)" and then paint the Landscape.
+
