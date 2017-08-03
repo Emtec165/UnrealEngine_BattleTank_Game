@@ -136,3 +136,10 @@ To add material to the Landscape:
 Select Landscape in World Outliner, go to the Details tab and ad Landscape Material.
 Go to Modes -> Landscape -> Paint; click '+' on the layer -> choose "...(normal)" and then paint the Landscape.
 
+To add textures to the project:
+In "Content Browser" click "Add New" -> "Add feature or content pack..."
+
+To make Pawn consisted of multi static meshes:
+Create new BluePrint -> Pawn -> edit it -> add static meshes (note parent mesh and child mesh in mesh tree) and choose static mesh in right hand side of the screen.
+Edit wanted static mesh and on the right hand side make a new socket.
+In BluePrint edit select Viewport tab and asign static mesh to the socket (once again on the right side of the screen). 
