@@ -147,4 +147,10 @@ In BluePrint edit select Viewport tab and asign static mesh to the socket (once 
 To make GUI (Graphic User Interface) in "Content Browser" click "add new" and choose "User interface" -> "Widget BP".
 
 Create new PlayerControllerBP and attach newly created widget to it in EventGraph like so:
-EventBeginPlay -> CreatePlayerUIWidget -> AddToViewport
+EventBeginPlay -> Create ... UIWidget -> AddToViewport
+
+To make stand alone game:
+File -> Package project -> ...
+
+To change Partent Class of a Blueprint:
+In Blueprint edit window click "Class Settings" tab and in Datails window change parent class.
