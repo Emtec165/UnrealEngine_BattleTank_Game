@@ -154,3 +154,5 @@ File -> Package project -> ...
 
 To change Partent Class of a Blueprint:
 In Blueprint edit window click "Class Settings" tab and in Datails window change parent class.
+
+In cpp 'virtual' method specifyer simply allows to override this method in inheritance tree.
