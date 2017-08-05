@@ -156,3 +156,6 @@ To change Partent Class of a Blueprint:
 In Blueprint edit window click "Class Settings" tab and in Datails window change parent class.
 
 In cpp 'virtual' method specifyer simply allows to override this method in inheritance tree.
+
+To assign tanks placed in the world to the AI:
+Go to TankBP blueprint edit. select "Class Defaults" and in the "Details" window change "AI Contoller Class" to your own class either cpp class or bp.
