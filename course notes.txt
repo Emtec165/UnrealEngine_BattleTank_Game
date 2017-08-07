@@ -20,6 +20,10 @@ Steps to reset your project
 
 
 
+If IntelliSense will be givining your sanity for trial, try this:
+https://answers.unrealengine.com/questions/299013/uclass-error.html
+
+
 (F11) to maximize preview window ("play" button).
 (SHIFT + F1) to show mouse cursor while in preview ("play") mode
 (F8) to eject while preview ("play") mode
@@ -159,3 +163,9 @@ In cpp 'virtual' method specifyer simply allows to override this method in inher
 
 To assign tanks placed in the world to the AI:
 Go to TankBP blueprint edit. select "Class Defaults" and in the "Details" window change "AI Contoller Class" to your own class either cpp class or bp.
+
+To get ViewPortSize:
+GetViewportSize();
+
+To DeprojectScreenPositionToWorld:
+DeprojectScreenPositionToWorld();
