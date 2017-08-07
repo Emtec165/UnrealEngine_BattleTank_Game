@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "TankAmingComponent.generated.h"
 
 
@@ -16,6 +17,8 @@ public:
 	// Sets default values for this component's properties
 	UTankAmingComponent();
 
+	void SetBarrelReference(UStaticMeshComponent*);
+
 	void AimAt(FVector) const;
 
 protected:
@@ -26,4 +29,5 @@ private:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	
+	UStaticMeshComponent* Barrel = nullptr;
 };
