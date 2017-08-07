@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Tank.h"
+#include "Engine/World.h"
+#include "Engine/EngineTypes.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
@@ -34,5 +36,10 @@ private:
 	UPROPERTY(EditAnywhere)
 	float CrosshairYLoaction = 0.33333;
 
+	UPROPERTY(EditAnywhere)
+	float AimRange = 1000000;
+
 	bool GetLookDirection(FVector2D, FVector&) const;
+
+	bool GetLookVectorHitLocation(FVector, FVector&) const;
 };
