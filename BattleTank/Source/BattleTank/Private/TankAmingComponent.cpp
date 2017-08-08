@@ -9,7 +9,7 @@ UTankAmingComponent::UTankAmingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = true;	// TODO should this tick?
 
 	// ...
 }
@@ -30,14 +30,20 @@ void UTankAmingComponent::AimAt(FVector HitLocation, float LaunchSpeed) {
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
-		ESuggestProjVelocityTraceOption::DoNotTrace);
+		false,
+		0,
+		0,
+		ESuggestProjVelocityTraceOption::DoNotTrace); //this paramater must be present to prevent bug
 
 	if (bHaveAimSolution) {
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: Aiming"), Time)
 	}
 	else {
-		//	nothing
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: Not aiming"), Time)
 	}
 }
 
@@ -46,7 +52,6 @@ void UTankAmingComponent::MoveBarrelTowards(FVector AimDirection) {
 	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
-	UE_LOG(LogTemp, Warning, TEXT("AimAsRotator: %s"), *AimAsRotator.ToString())
 
 	Barrel->Elevate(5.f);	// TODO remove maigic number
 }
