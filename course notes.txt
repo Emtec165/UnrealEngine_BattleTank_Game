@@ -169,3 +169,9 @@ GetViewportSize();
 
 To DeprojectScreenPositionToWorld:
 DeprojectScreenPositionToWorld();
+
+GetWorld()->DeltaTimeSeconds;
+Allows to create freamerate independent animations.
+
+To Clamp X to be between Min and Max, inclusive
+FMath::Clamp(const T X, const T Min, const T Max);
