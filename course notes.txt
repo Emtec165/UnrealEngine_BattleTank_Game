@@ -185,3 +185,7 @@ void MethodName(MethodParameters);
 
 To make forward declaration (use to include custom classes; don't use #include) COMPILATION PROCESS OPTIMIZATION:
 class ClassName; <- before class body in .h
+
+To add class component form code:
+In .h add "ClassName Variable = nullptr;"
+In .cpp class constructor add "Variable= CreateDefaultSubobject<ClassName>(FName("Name to display in blueprint edit"));"
