@@ -9,6 +9,7 @@
 #include "TankAmingComponent.generated.h"
 
 class UTankBarrel; // Holds barrel's propertires and method
+class UTankTurret;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAmingComponent : public UActorComponent
@@ -20,6 +21,7 @@ public:
 	UTankAmingComponent();
 
 	void SetBarrelReference(UTankBarrel*);
+	void SetTurretReference(UTankTurret*);
 
 	//	TODO add SetTurretReference
 
@@ -27,6 +29,8 @@ public:
 
 private:	
 	UTankBarrel* Barrel = nullptr;
+	UTankTurret* Turret = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
+	void MoveTurretTowards(FVector AimDirection);
 };

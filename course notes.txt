@@ -178,3 +178,10 @@ FMath::Clamp(const T X, const T Min, const T Max);
 
 To make cpp class visible in blueprints change CLASS macro to:
 UCLASS(meta = (BlueprintSpawnableComponent))
+
+To make cpp method visible in blueprint edit add:
+UFUNCTION(BlueprintCallable, Category = Setup)
+void MethodName(MethodParameters);
+
+To make forward declaration (use to include custom classes; don't use #include) COMPILATION PROCESS OPTIMIZATION:
+class ClassName; <- before class body in .h
