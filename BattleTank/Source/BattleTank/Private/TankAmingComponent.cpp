@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAmingComponent.h"
+#include "TankBarrel.h"
 
 
 // Sets default values for this component's properties
@@ -13,13 +14,12 @@ UTankAmingComponent::UTankAmingComponent()
 	// ...
 }
 
-void UTankAmingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet) {
+void UTankAmingComponent::SetBarrelReference(UTankBarrel* BarrelToSet) {
 	Barrel = BarrelToSet;
 }
 
 void UTankAmingComponent::AimAt(FVector HitLocation, float LaunchSpeed) {
 	if (!Barrel) { return; }
-
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
 
@@ -48,7 +48,7 @@ void UTankAmingComponent::MoveBarrelTowards(FVector AimDirection) {
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 	UE_LOG(LogTemp, Warning, TEXT("AimAsRotator: %s"), *AimAsRotator.ToString())
 
-	// Move the berrel
+	Barrel->Elevate(5.f);	// TODO remove maigic number
 }
 
 
