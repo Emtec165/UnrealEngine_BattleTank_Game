@@ -175,3 +175,6 @@ Allows to create freamerate independent animations.
 
 To Clamp X to be between Min and Max, inclusive
 FMath::Clamp(const T X, const T Min, const T Max);
+
+To make cpp class visible in blueprints change CLASS macro to:
+UCLASS(meta = (BlueprintSpawnableComponent))
