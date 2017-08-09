@@ -76,7 +76,10 @@ ALT + drag to duiplicate an object
 Hold L + double-click for temporary work Light
 
 This is a UE predefinied macro which acts as a "cut-and-paste". This happens before code compilation.
-UPROPERTY(VisibleAnywhere)  <- It DON'T end with ";". InteliSense will not show any completion for it so u need to goole for posible parameters.
+UPROPERTY(VisibleAnywhere) 	<- Visible in UE editor but cannot be edited
+UPROPERTY(EditAnywhere) 	<- Visible in UE editor can be edited independently in every instance of this class!!
+UPROPERTY(EditDefaultsOnly)  	<- Visible in UE editor can be edited only in blueprint edit. Sets same value for all instances of this class!!!
+It DON'T end with ";". InteliSense will not show any completion for it so u need to goole for posible parameters.
 https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Reference/Properties/
 
 GetOwner() <- gets the parent object
@@ -189,3 +192,6 @@ class ClassName; <- before class body in .h
 To add class component form code:
 In .h add "ClassName Variable = nullptr;"
 In .cpp class constructor add "Variable= CreateDefaultSubobject<ClassName>(FName("Name to display in blueprint edit"));"
+
+Another way of getting "wierd but reliable" time:
+FPlatformTime::Seconds();
