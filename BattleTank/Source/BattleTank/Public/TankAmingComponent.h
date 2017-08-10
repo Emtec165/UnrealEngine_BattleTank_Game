@@ -23,8 +23,6 @@ public:
 	void SetBarrelReference(UTankBarrel*);
 	void SetTurretReference(UTankTurret*);
 
-	//	TODO add SetTurretReference
-
 	void AimAt(FVector, float);
 
 private:	

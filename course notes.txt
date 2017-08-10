@@ -195,3 +195,6 @@ In .cpp class constructor add "Variable= CreateDefaultSubobject<ClassName>(FName
 
 Another way of getting "wierd but reliable" time:
 FPlatformTime::Seconds();
+
+If you want to want to always open new "things" in new tab rather than new window:
+Click "Edit" i UE editor tab -> "Editor Preferencess..." -> "Asset Editor Open Location" -> "Main Window"
