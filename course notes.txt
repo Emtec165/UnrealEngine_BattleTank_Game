@@ -205,3 +205,6 @@ While adding NavMeshBoundsVolume to the level click "Show" -> "Navigation" ('P' 
 
 To let AI go in the player direction:
 MoveToActor(PlayerActor, HowCloseAIShouldBe);
+
+To get unit vector of a vector:
+VectorVariable.GetSafeNormal();

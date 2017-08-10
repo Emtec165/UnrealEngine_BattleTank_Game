@@ -26,7 +26,9 @@ void UTankMovementComponent::IntendTurn(float Throw) {
 void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, bool bForceMaxSpeed) {
 	// No need to call Super. We don't need it right now
 
-	auto Time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: %s MoveVelocity %s"), Time, *GetOwner()->GetName(), *MoveVelocity.ToString())
+	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
+	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
+	auto Throw = FVector::DotProduct(TankForward, AIForwardIntention);
+	IntendMoveForward(Throw);
 }
 
