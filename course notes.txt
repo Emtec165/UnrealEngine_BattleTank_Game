@@ -198,3 +198,10 @@ FPlatformTime::Seconds();
 
 If you want to want to always open new "things" in new tab rather than new window:
 Click "Edit" i UE editor tab -> "Editor Preferencess..." -> "Asset Editor Open Location" -> "Main Window"
+
+To add AI path finding:
+Add Nav Mesh Bounds Volumen to the level. AI Contor Movement controller must at least NavMovementComponent.
+While adding NavMeshBoundsVolume to the level click "Show" -> "Navigation" ('P' shortcut).
+
+To let AI go in the player direction:
+MoveToActor(PlayerActor, HowCloseAIShouldBe);
