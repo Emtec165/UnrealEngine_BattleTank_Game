@@ -208,3 +208,6 @@ MoveToActor(PlayerActor, HowCloseAIShouldBe);
 
 To get unit vector of a vector:
 VectorVariable.GetSafeNormal();
+
+To get result of vector multiplication use:
+FVector::DotProduct();
