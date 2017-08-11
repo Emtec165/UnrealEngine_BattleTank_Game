@@ -183,8 +183,14 @@ To make cpp class visible in blueprints change CLASS macro to:
 UCLASS(meta = (BlueprintSpawnableComponent))
 
 To make cpp method visible in blueprint edit add:
-UFUNCTION(BlueprintCallable, Category = Setup)
-void MethodName(MethodParameters);
+UFUNCTION(BlueprintCallable, Category = "Setup")
+void FoundAimingComponent(SomeObjectType* SomeObject
+AND in the BeginPlay() method:
+FoundAimingComponentSomeObject
+It will allow to trigger some action in BP and also get SomeObject reference.
+
+To make cpp method implementable in bp:
+UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 
 To make forward declaration (use to include custom classes; don't use #include) COMPILATION PROCESS OPTIMIZATION:
 class ClassName; <- before class body in .h
@@ -211,3 +217,7 @@ VectorVariable.GetSafeNormal();
 
 To get result of vector multiplication use:
 FVector::DotProduct();
+
+UE4 project build order:
+cpp files construction -> BP construction -> BP BeginPlay -> CPP BeginPlay
+NOTE: To call BP BeginPlay in BeginPlay cpp method Super::BeginPlay() must be present!!!
