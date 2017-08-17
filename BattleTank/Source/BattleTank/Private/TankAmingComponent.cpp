@@ -10,9 +10,23 @@ UTankAmingComponent::UTankAmingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+}
+
+void UTankAmingComponent::BeginPlay() {
+	Super::BeginPlay();
+	// At begin play tanks need to reload
+	LastFireTime = FPlatformTime::Seconds();
+}
+
+void UTankAmingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) {
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if (bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds) {
+		FiringState = EFiringStatus::Reloading;
+	}
+	//	TODO handle aiming and locked status
 }
 
 void UTankAmingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet) {
@@ -49,9 +63,8 @@ void UTankAmingComponent::AimAt(FVector HitLocation) {
 }
 
 void UTankAmingComponent::Fire() {
-	if (!ensure(Barrel && ProjectileBlueprint)) { return; }
-	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
-	if (Barrel && isReloaded) {
+	if (FiringState != EFiringStatus::Reloading) {
+		if (!ensure(Barrel && ProjectileBlueprint)) { return; }
 		//Spawn a projectile at the barrel socket location
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 			ProjectileBlueprint,
@@ -77,5 +90,3 @@ void UTankAmingComponent::MoveTurretTowards(FVector AimDirection) {
 	auto DeltaRotator = AimAsRotator - TurretRotator;
 	Turret->Rotate(DeltaRotator.Yaw);
 }
-
-
