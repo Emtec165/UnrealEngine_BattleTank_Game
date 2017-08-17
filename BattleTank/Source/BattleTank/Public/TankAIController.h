@@ -20,6 +20,9 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float AcceptanceRadius = 3000;	// TODO radius is in cm
 
+	UPROPERTY(EditDefaultsOnly)
+	bool CanAIFire = true;
+
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;

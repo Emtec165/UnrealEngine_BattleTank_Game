@@ -21,17 +21,29 @@ void UTankAmingComponent::BeginPlay() {
 	LastFireTime = FPlatformTime::Seconds();
 }
 
+void UTankAmingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet) {
+	Barrel = BarrelToSet;
+	Turret = TurretToSet;
+}
+
 void UTankAmingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	if (bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds) {
+	if (bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) < ReloadTimeInSeconds) {
 		FiringState = EFiringStatus::Reloading;
+	}
+	else if (IsBarrelMoving()) {
+		FiringState = EFiringStatus::Aiming;
+	}
+	else {
+		FiringState = EFiringStatus::Locked;
 	}
 	//	TODO handle aiming and locked status
 }
 
-void UTankAmingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet) {
-	Barrel = BarrelToSet;
-	Turret = TurretToSet;
+bool UTankAmingComponent::IsBarrelMoving() {
+	if (!ensure(Barrel)) { return false; }
+	auto BarrelForward = Barrel->GetForwardVector();
+	return !BarrelForward.Equals(AimDirection, 0.01);
 }
 
 void UTankAmingComponent::AimAt(FVector HitLocation) {
@@ -52,7 +64,7 @@ void UTankAmingComponent::AimAt(FVector HitLocation) {
 		ESuggestProjVelocityTraceOption::DoNotTrace); //this paramater must be present to prevent bug
 
 	if (bHaveAimSolution) {
-		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
+		AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
 		MoveTurretTowards(AimDirection);
 	}

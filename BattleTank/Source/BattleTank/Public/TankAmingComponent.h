@@ -48,6 +48,11 @@ private:
 
 	virtual void BeginPlay() override;
 
+	bool IsBarrelMoving();
+
+	void MoveBarrelTowards(FVector AimDirection);
+	void MoveTurretTowards(FVector AimDirection);
+
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float ReloadTimeInSeconds = 3;
 
@@ -62,6 +67,5 @@ private:
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
-	void MoveBarrelTowards(FVector AimDirection);
-	void MoveTurretTowards(FVector AimDirection);
+	FVector AimDirection;
 };
