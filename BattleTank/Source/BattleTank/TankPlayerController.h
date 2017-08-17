@@ -3,13 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
 #include "Engine/World.h"
 #include "Engine/EngineTypes.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
-class ATank;
 class UTankAmingComponent;
 
 UCLASS()
@@ -18,9 +16,6 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 	
 protected:
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	ATank* GetControlledTank() const;
-
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAmingComponent* AimCompRef);
 
@@ -35,6 +30,11 @@ private:
 
 	bool GetSightRayHitLocatoon(FVector&) const;
 
+	bool GetLookDirection(FVector2D, FVector&) const;
+
+	bool GetLookVectorHitLocation(FVector, FVector&) const;
+
+
 	UPROPERTY(EditDefaultsOnly)
 	float CrosshairXLoaction = 0.5;
 
@@ -44,7 +44,5 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float AimRange = 1000000;
 
-	bool GetLookDirection(FVector2D, FVector&) const;
-
-	bool GetLookVectorHitLocation(FVector, FVector&) const;
+	UTankAmingComponent* TankAimingComponent = nullptr;
 };

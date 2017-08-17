@@ -8,7 +8,6 @@
 #include "Tank.generated.h"
 
 class UTankBarrel; // Forward Declaration
-class UTankAmingComponent;
 class UTankTurret;
 class AProjectile;
 
@@ -23,8 +22,6 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void Fire();
-
-	void AimAt(FVector);
 
 protected:
 	// Called when the game starts or when spawned
@@ -45,6 +42,4 @@ private:
 
 	//	Local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr;	// TODO Remove
-
-	UTankAmingComponent* TankAimingComponent = nullptr;	//	TODO Remove
 };
