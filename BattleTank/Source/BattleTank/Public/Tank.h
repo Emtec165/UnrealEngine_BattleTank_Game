@@ -30,7 +30,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:	
+private:
+	//	TODO remove once firing is moved to aiming component
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 6000;
 
@@ -44,4 +45,6 @@ private:
 
 	//	Local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr;	// TODO Remove
+
+	UTankAmingComponent* TankAimingComponent = nullptr;	//	TODO Remove
 };

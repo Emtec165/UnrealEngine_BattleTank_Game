@@ -21,8 +21,7 @@ void UTankAmingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* Turr
 }
 
 void UTankAmingComponent::AimAt(FVector HitLocation, float LaunchSpeed) {
-	if (!ensure(Barrel)) { return; }
-	if (!ensure(Turret)) { return; }
+	if (!ensure(Barrel) || !ensure(Turret)) { return; }
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
 

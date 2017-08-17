@@ -17,11 +17,12 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
+	TankAimingComponent = FindComponentByClass<UTankAmingComponent>();
 }
 
 void ATank::AimAt(FVector HitLocation) {
-	// TODO change calling aiming component
-	//TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
+	if (!ensure(TankAimingComponent)) { return; }
+	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::Fire() {
