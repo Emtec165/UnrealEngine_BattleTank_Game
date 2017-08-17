@@ -21,10 +21,12 @@ void ATank::BeginPlay()
 }
 
 void ATank::AimAt(FVector HitLocation) {
+	// TODO change calling aiming component
 	//TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::Fire() {
+	if (!ensure(Barrel)) { return; }
 	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
 	if (Barrel && isReloaded) {
 		//Spawn a projectile at the barrel socket location

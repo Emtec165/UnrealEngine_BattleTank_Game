@@ -221,3 +221,6 @@ FVector::DotProduct();
 UE4 project build order:
 cpp files construction -> BP construction -> BP BeginPlay -> CPP BeginPlay
 NOTE: To call BP BeginPlay in BeginPlay cpp method Super::BeginPlay() must be present!!!
+
+Use 'ensure' assertions instead of simple nullptr checks:
+https://docs.unrealengine.com/latest/INT/Programming/Assertions/

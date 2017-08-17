@@ -15,8 +15,8 @@ void ATankAIController::Tick(float DeltaTime) {
 	ATank* PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	ATank* ControlledTank = Cast<ATank>(GetPawn());
 	
-	if (!ControlledTank) { return; }
-	if (PlayerTank) {
+	if (!ensure(ControlledTank)) { return; }
+	if (ensure(PlayerTank)) {
 		MoveToActor(PlayerTank, AcceptanceRadius);
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 		//ControlledTank->Fire();	// TODO limit firing rate
