@@ -224,3 +224,6 @@ NOTE: To call BP BeginPlay in BeginPlay cpp method Super::BeginPlay() must be pr
 
 Use 'ensure' assertions instead of simple nullptr checks:
 https://docs.unrealengine.com/latest/INT/Programming/Assertions/
+
+To add OnHit event in cpp (for example tank track hitting floor):
+https://answers.unrealengine.com/questions/429353/cpp-on-component-hit-doesnt-fire.html
