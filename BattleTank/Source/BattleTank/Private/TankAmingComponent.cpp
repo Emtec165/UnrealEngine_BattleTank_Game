@@ -107,3 +107,7 @@ void UTankAmingComponent::MoveTurretTowards(FVector AimDirection) {
 		Turret->Rotate(-DeltaRotator.Yaw);
 	}
 }
+
+EFiringStatus UTankAmingComponent::GetFiringState() const {
+	return FiringState;
+}
