@@ -227,3 +227,17 @@ https://docs.unrealengine.com/latest/INT/Programming/Assertions/
 
 To add OnHit event in cpp (for example tank track hitting floor):
 https://answers.unrealengine.com/questions/429353/cpp-on-component-hit-doesnt-fire.html
+
+To get rid of unessesary starter content files:
+1) Make StarterContent folder backup
+2) From UE editor try to delete StarterContent folder
+3) The delete asset warning will appear which will show which assets are in use
+4) Cancel delete operation
+5) Find the asset (only one) in Content Browser
+6) Right-click on it and select "Reference Viewer"
+7) Select all textures on the right, click right mouse button and select "Find in content browser"
+8) Move selected files to the different folder. Used texture too.
+9) Right-click on StarterContent and choose "Fix Up Redirectors in Folder"
+10) Repeat from step #2 to move all needed assets. Finally delete folder.
+11) Re-open UE Editor & check if everything works.
+12) Don't forget to modify .gitignore file
