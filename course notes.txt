@@ -257,3 +257,7 @@ StarterContent folder will appear in main project but with much less files in it
 To change particle bounding system in Particle System:
 1) Click on dark area of the screen (to NOT have something selected)
 2) Under Details tab un-click "Use Fixed Relative Bounding Box"
+
+To get adidtional info about compilation, packaging results and other logs:
+1) Window -> Developer Tools -> Message Log
+2) Attach it to the UE editor (drag and drop)

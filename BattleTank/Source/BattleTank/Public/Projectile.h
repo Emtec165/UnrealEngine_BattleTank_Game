@@ -29,6 +29,10 @@ private:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+
+
 	UMyProjectileMovementComponent* ProjectileMovement = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
@@ -36,5 +40,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	UParticleSystemComponent* LaunchBlast = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	UParticleSystemComponent* ImpactBlast = nullptr;
 	
 };
