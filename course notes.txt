@@ -253,3 +253,7 @@ To easily import assets from StarterContent:
 StarterContent folder will appear in main project but with much less files in it.
 5) Move wanted asset to wanted folder (leave rest as it is).
 6) Stage files and commit.
+
+To change particle bounding system in Particle System:
+1) Click on dark area of the screen (to NOT have something selected)
+2) Under Details tab un-click "Use Fixed Relative Bounding Box"
