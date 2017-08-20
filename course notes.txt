@@ -241,3 +241,6 @@ To get rid of unessesary starter content files:
 10) Repeat from step #2 to move all needed assets. Finally delete folder.
 11) Re-open UE Editor & check if everything works.
 12) Don't forget to modify .gitignore file
+
+To set default value of "Simulation Generates Hits Event"
+(UStaticMeshComponent...) CollisionMesh->SetNotifyRigidBodyCollision(true); 

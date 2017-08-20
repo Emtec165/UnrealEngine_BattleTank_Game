@@ -36,7 +36,7 @@ public:
 	void Fire();
 
 	UFUNCTION(BlueprintCallable, Category = Firing)
-	int GetRoundsLeft() const;
+	int32 GetRoundsLeft() const;
 
 	void AimAt(FVector);
 
@@ -69,7 +69,7 @@ private:
 	float LaunchSpeed = 6000;
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	int RoundsLeft = 3;
+	int32 RoundsLeft = 3;
 
 	double LastFireTime = 0;
 
