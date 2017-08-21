@@ -15,6 +15,8 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
+	virtual void BeginPlay() override;
+
 	UFUNCTION(BlueprintPure, Category = "Health")
 	float GetHealthPercent() const;
 
@@ -29,5 +31,5 @@ private:
 	int32 StartingHealth = 100;
 
 	UPROPERTY(VisibleAnywhere, Category = "Helath")
-	int32 CurrentHealth = StartingHealth;
+	int32 CurrentHealth; // Initialized in BeginPlay
 };
