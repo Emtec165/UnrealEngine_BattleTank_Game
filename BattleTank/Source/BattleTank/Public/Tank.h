@@ -13,10 +13,10 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	UFUNCTION(BlueprintPure, Category = "Health")
+	float GetHealthPercent() const;
 
+protected:
 	//	Called by the engine when projectile in range wants to implict damage
 	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 
