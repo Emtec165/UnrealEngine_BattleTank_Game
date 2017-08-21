@@ -16,16 +16,21 @@ class BATTLETANK_API ATankAIController : public AAIController
 	GENERATED_BODY()
 	
 private:
-	//	How close an AI can get to the player
-	UPROPERTY(EditDefaultsOnly)
-	float AcceptanceRadius = 8000;	// TODO radius is in cm
-
-	UPROPERTY(EditDefaultsOnly)
-	bool CanAIFire = true;
-
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void SetPawn(APawn* InPawn) override;
+
 	UTankAmingComponent* TankAmingComponent = nullptr;
+
+	UFUNCTION()
+	void OnPossessedTankDeath();
+
+	UPROPERTY(EditDefaultsOnly)
+	bool CanAIFire = true;
+
+	//	How close an AI can get to the player
+	UPROPERTY(EditDefaultsOnly)
+	float AcceptanceRadius = 8000;	// TODO radius is in cm
 };

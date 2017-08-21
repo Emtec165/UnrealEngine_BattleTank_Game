@@ -265,3 +265,22 @@ To get adidtional info about compilation, packaging results and other logs:
 To trigger method after certain time / to delay some action use:
 FTimerHandle Timer;
 GetWorld()->GetTimerManager().SetTimer(Timer, this, &Class::MethodToExecute, DelayTimeValue, false);
+
+Creating delegates:
+https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/index.html#declaringdelegates
+https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/Dynamic/
+https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/Multicast/
+
+=============================================================================
+Using delegates:
+In delegate trigger class in .h
+"DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDelegateName);" before UCLASS()
+"FDelegateName TriggeringEvent;" in private section
+In delegate trigger class in .cpp
+"TriggeringEvent.Broadcast();" when it needs to be triggered
+
+In delegate reciver class in .h
+"UFUNCTION()
+void MethodToExecuteAfterGettingDelegateInfo();" in private section
+"ClassThatTriggers->TriggeringEvent.AddUniqueDynamic(this, &CurrentClass::MethodToExecuteAfterGettingDelegateInfo);"
+=============================================================================
