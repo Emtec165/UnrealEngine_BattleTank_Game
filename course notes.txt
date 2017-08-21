@@ -261,3 +261,7 @@ To change particle bounding system in Particle System:
 To get adidtional info about compilation, packaging results and other logs:
 1) Window -> Developer Tools -> Message Log
 2) Attach it to the UE editor (drag and drop)
+
+To trigger method after certain time / to delay some action use:
+FTimerHandle Timer;
+GetWorld()->GetTimerManager().SetTimer(Timer, this, &Class::MethodToExecute, DelayTimeValue, false);

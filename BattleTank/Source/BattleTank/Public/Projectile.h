@@ -33,18 +33,22 @@ private:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 
+	void OnTimerExpire();
 
 	UMyProjectileMovementComponent* ProjectileMovement = nullptr;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float DestroyDelay = 10;
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UStaticMeshComponent* CollisionMesh = nullptr;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent* LaunchBlast = nullptr;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent* ImpactBlast = nullptr;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	URadialForceComponent* ExplosionForce = nullptr;
 };
